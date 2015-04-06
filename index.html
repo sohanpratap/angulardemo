@@ -3,13 +3,16 @@
 <head>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
-
 <body ng-controller="StoreController as store">
-<div>
-<h1></h1>
-<h2></h2>
-<p></p>
-</div>
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="product in store.products">
+<h3>{{product.name|uppercase}}
+<em class="pull-right">{{product.price|currency}}</em>
+<img ng-src="{{product.images[0].full}}" />
+</h3>
+<button ng-show="product.status">Add to Cart</button>
+</li>
+</ul>
 <script src="js/angular.min.js"></script>
 <script src="js/customapp.js"></script>
 </body>
